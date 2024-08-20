@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>my quadratic formula</title>
+    <style type="text/css">
+      body {
+      background-image:url("img.jpg");
+      color: #00ff24;
+      }
+    
+      input {
+      		height: 40px;
+      		width: 30px;
+            outline: none;
+            border-radius: 5px;
+            color: crimson;
+            padding: 5px;
+      	}
+      	input:hover {
+      	 outline: 2px solid aqua;
+      	 width: 40px;
+      	 transition: width.30s;
+      	}
+     button {
+     height: 40px;
+     width: 150px;
+     padding: 5px;
+     color: white;
+     background: #fea421;
+     border: 2px solid white;
+     border-radius: 15px;
+     
+     }
+     button:hover {
+     border: 2px solid black;
+     background: grey;
+     color: black;
+     width: 100px;
+     transition: background.3s, width.4s, border.5s;
+     outline: none;
+     }
+     
+     
+    hr {
+    background-color: #00ff24;
+    }
+    #myname {
+    color: ;
+    }
+    
+    </style>
+</head>
+<body>
+    <h1>Quadratic calculator</h1>
+    <p>
+        <b>a: <span><input id="a" type="number"></input></span></b>
+    </p>
+    <p>
+        <b>b: <span><input id="b" type="number"></input></span></b>
+    </p>
+    <p>
+        <b>c: <span><input id="c" type="number"></input></span></b>
+    </p>
+    <center>
+        <button onclick="calculate()">Calculate</button>
+    </center>
+
+    <h2>x = <span id="positiveAns"></span> or <span id="negativeAns"></span></h2>
+    <hr/>
+    <footer>
+    <center>
+    <p> &copy; 2023 Nebula.INC </p>
+    <h4>
+    CREATED BY <b id="myname" >PETERS JOSHUA</b> 
+    </h4>
+     </center>
+     </footer>
+    <script type="text/javascript">
+        function calculate() {
+            let hay = document.getElementById("a");
+            let bee = document.getElementById("b");
+            let cee = document.getElementById("c");
+
+            let a = parseFloat(hay.value);
+            let b = parseFloat(bee.value);
+            let c = parseFloat(cee.value);
+
+            let discriminant = b * b - 4 * a * c;
+
+            if (discriminant >= 0) {
+                let positiveRoot = (-b + Math.sqrt(discriminant)) / (2 * a);
+                let negativeRoot = (-b - Math.sqrt(discriminant)) / (2 * a);
+                document.getElementById("positiveAns").innerHTML = positiveRoot;
+                document.getElementById("negativeAns").innerHTML = negativeRoot;
+            } else {
+                document.getElementById("positiveAns").innerHTML = "No real roots";
+                document.getElementById("negativeAns").innerHTML = "imaginary roots";
+                
+            }
+        }
+    </script>
+</body>
+</html>
